@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const ApiKeySchema = require('./schemes/apiKeySchema')
 const PairSchema = require('./schemes/pairSchema')
 
-let port = 3000
+let port = process.env.PORT
 const uri = `mongodb+srv://${process.env.DB_HOST}:${process.env.DB_PASS}@lookmeupcluster.nl7pm.mongodb.net/Table?retryWrites=true&w=majority`
 
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
