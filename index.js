@@ -2,6 +2,7 @@ require('dotenv').config()
 const { SHA256 } = require('crypto-js')
 const randomstring = require('randomstring')
 const express = require('express')
+const cors = require('cors')
 const mongoose = require('mongoose')
 const ApiKeySchema = require('./schemes/apiKeySchema')
 const PairSchema = require('./schemes/pairSchema')
@@ -48,6 +49,9 @@ async function getPairOrCreate(value, length) {
 
 
 let app = express()
+
+app.use(cors())
+
 let bodyParser = require('body-parser')
 
 app.use(bodyParser.json()) // support json encoded bodies
